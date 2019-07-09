@@ -1,9 +1,25 @@
 <h2>Users</h2>
 
+<button [disabled]="!enabled" class="btn btn-light btn-block mb-3">Add new User</button>
+
 <ul>
-    <li *ngFor="let user of users ">
-        {{user.firstName}},
-        {{user.lastName}},
-        {{user.age}}
+    <li class="card card-body" *ngFor="let user of users ">
+        <div class="row">
+            <div class="col-sm-4">
+                <!-- 3 common ways to data-binding -->
+                <a *ngIf="user.image" href="{{user.image}}">Link</a>
+                <!-- <a *ngIf="user.image" [href]="user.image">Link</a> -->
+                <!-- <a *ngIf="user.image" bind-href="user.image">Link</a> -->
+            </div>
+        </div>
+        <div class="col-sm-8">
+            {{user.firstName}}
+            <ul class="list-group" *ngIf="showExtended">
+                <li class="list-group-item">
+                    {{user.lastName}},
+                    {{user.age}}
+                </li>
+            </ul>
+        </div>
     </li>
 </ul>

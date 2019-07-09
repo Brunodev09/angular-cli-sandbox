@@ -9,6 +9,8 @@ import { User } from '../../models/User';
 })
 export class UsersComponent implements OnInit {
   users: User[];
+  showExtended: boolean = true;
+  enabled: boolean = true;
 
   constructor() { }
 
@@ -21,7 +23,8 @@ export class UsersComponent implements OnInit {
         address: {
           street: "wtv",
           city: 'SP'
-        }
+        },
+        image: "https://google.com"
       },
       {
         firstName: 'Dino',
@@ -30,7 +33,8 @@ export class UsersComponent implements OnInit {
         address: {
           street: "wtv",
           city: 'SP'
-        }
+        },
+        image: "https://google.com"
       },
       {
         firstName: 'Maysa',
@@ -39,7 +43,8 @@ export class UsersComponent implements OnInit {
         address: {
           street: "wtv",
           city: 'SP'
-        }
+        },
+        image: "https://google.com"
       }
     ];
 
