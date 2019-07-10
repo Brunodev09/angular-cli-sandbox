@@ -1,3 +1,5 @@
+// ? makes it optional
+
 export interface User {
     firstName: string,
     lastName: string,
@@ -6,6 +8,8 @@ export interface User {
         street?: string,
         city?: string
     },
-    image?: string
-    // ? makes it optional
+    image?: string,
+    isActive?: boolean,
+    balance?: number,
+    registered?: any
 }

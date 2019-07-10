@@ -12,6 +12,8 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = true;
   enabled: boolean = true;
 
+  currentStyles = {};
+
   constructor() { }
 
   ngOnInit() {
@@ -24,7 +26,10 @@ export class UsersComponent implements OnInit {
           street: "wtv",
           city: 'SP'
         },
-        image: "https://google.com"
+        image: "https://google.com",
+        isActive: true,
+        balance: 220,
+        registered: new Date()
       },
       {
         firstName: 'Dino',
@@ -34,7 +39,10 @@ export class UsersComponent implements OnInit {
           street: "wtv",
           city: 'SP'
         },
-        image: "https://google.com"
+        image: "https://google.com",
+        isActive: false,
+        balance: 100,
+        registered: new Date()
       },
       {
         firstName: 'Maysa',
@@ -44,7 +52,9 @@ export class UsersComponent implements OnInit {
           street: "wtv",
           city: 'SP'
         },
-        image: "https://google.com"
+        image: "https://google.com",
+        balance: 300,
+        registered: new Date()
       }
     ];
 
@@ -55,12 +65,22 @@ export class UsersComponent implements OnInit {
       address: {
         street: "wtv",
         city: 'Mars'
-      }
+      },
+      balance: 500,
+      registered: new Date()
     });
+
+    this.setCurrentStyles();
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  setCurrentStyles() {
+    this.currentStyles = {
+      'padding-top': this.showExtended ? '0' : '10px'
+    }
   }
 
 }

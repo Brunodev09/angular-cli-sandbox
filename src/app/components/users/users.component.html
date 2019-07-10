@@ -3,7 +3,7 @@
 <button [disabled]="!enabled" class="btn btn-light btn-block mb-3">Add new User</button>
 
 <ul>
-    <li class="card card-body" *ngFor="let user of users ">
+    <li [style.border-color]="user.isActive ? 'green' : 'red'" [class.bg-light]="user.isActive" class="card card-body" *ngFor="let user of users ">
         <div class="row">
             <div class="col-sm-4">
                 <!-- 3 common ways to data-binding -->
@@ -12,13 +12,16 @@
                 <!-- <a *ngIf="user.image" bind-href="user.image">Link</a> -->
             </div>
         </div>
-        <div class="col-sm-8">
-            {{user.firstName}}
+        <div [ngStyle]="currentStyles" class="col-sm-8">
+            {{user.firstName | uppercase}}
             <ul class="list-group" *ngIf="showExtended">
                 <li class="list-group-item">
-                    {{user.lastName}},
+                    {{user.lastName | lowercase}},
                     {{user.age}}
                 </li>
+                <li class="list-group-item">Balance: {{user.balance | currency:"BRL"}}</li>
+                <li class="list-group-item">Date of register: {{user.registered | date:"dd/mm/yyyy"}}</li>
+                <li class="list-group-item">Test pipe number: {{14314 | number:"1.3"}}</li>
             </ul>
         </div>
     </li>
