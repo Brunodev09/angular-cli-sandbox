@@ -29,7 +29,8 @@ export class UsersComponent implements OnInit {
         image: "https://google.com",
         isActive: true,
         balance: 220,
-        registered: new Date()
+        registered: new Date(),
+        hide: false
       },
       {
         firstName: 'Dino',
@@ -42,7 +43,8 @@ export class UsersComponent implements OnInit {
         image: "https://google.com",
         isActive: false,
         balance: 100,
-        registered: new Date()
+        registered: new Date(),
+        hide: false
       },
       {
         firstName: 'Maysa',
@@ -54,7 +56,8 @@ export class UsersComponent implements OnInit {
         },
         image: "https://google.com",
         balance: 300,
-        registered: new Date()
+        registered: new Date(),
+        hide: false
       }
     ];
 
@@ -67,7 +70,8 @@ export class UsersComponent implements OnInit {
         city: 'Mars'
       },
       balance: 500,
-      registered: new Date()
+      registered: new Date(),
+      hide: false
     });
 
     this.setCurrentStyles();
@@ -81,6 +85,11 @@ export class UsersComponent implements OnInit {
     this.currentStyles = {
       'padding-top': this.showExtended ? '0' : '10px'
     }
+  }
+
+  fireEvent(evt, user) {
+    console.log(evt, user);
+    user.hide = !user.hide;
   }
 
 }

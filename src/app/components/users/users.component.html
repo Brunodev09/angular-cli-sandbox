@@ -1,6 +1,6 @@
 <h2>Users</h2>
 
-<button [disabled]="!enabled" class="btn btn-light btn-block mb-3">Add new User</button>
+<button (click)="fireEvent($event)" [disabled]="!enabled" class="btn btn-light btn-block mb-3">Add new User</button>
 
 <ul>
     <li [style.border-color]="user.isActive ? 'green' : 'red'" [class.bg-light]="user.isActive" class="card card-body" *ngFor="let user of users ">
@@ -12,9 +12,9 @@
                 <!-- <a *ngIf="user.image" bind-href="user.image">Link</a> -->
             </div>
         </div>
-        <div [ngStyle]="currentStyles" class="col-sm-8">
+        <div (click)="fireEvent($event, user)" [ngStyle]="currentStyles" class="col-sm-8">
             {{user.firstName | uppercase}}
-            <ul class="list-group" *ngIf="showExtended">
+            <ul class="list-group" *ngIf="!user.hide">
                 <li class="list-group-item">
                     {{user.lastName | lowercase}},
                     {{user.age}}
